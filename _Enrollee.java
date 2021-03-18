@@ -24,6 +24,7 @@ public class _Enrollee  {
     private Boolean activationStatus;
     private Date dob;
     private String phone;
+    private String name;
     private Set <_Dependent> dependents = new HashSet<>();
 
 
@@ -60,13 +61,23 @@ public class _Enrollee  {
         this.dob = dob;
     }
     
+    @Column(name = "NAME")
+    public String getName() {
+        return name;
+    }
+
+    @Column(name = "NAME")
+    public void setName(String name) {
+        this.n ame= name;
+    }
+    
     @Column(name = "PHONE")
     public String getPhone() {
         return phone;
     }
 
     @Column(name = "PHONE")
-    public void setphone(String phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
     
