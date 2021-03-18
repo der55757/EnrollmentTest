@@ -24,7 +24,7 @@ public class _Enrollee  {
     private Boolean activationStatus;
     private Date dob;
     private String phone;
-    private Set <_Dependents> dependents = new HashSet<>();
+    private Set <_Dependent> dependents = new HashSet<>();
 
 
 
@@ -36,7 +36,7 @@ public class _Enrollee  {
     }
 
     @Column(name = "ENROLLEE_ID", nullable = false)
-    public void setCreditApplicationOid(Long enrolleeId) {
+    public void setEnrolleeId(Long enrolleeId) {
         this.enrolleeId = enrolleeId;
     }
     
@@ -72,11 +72,11 @@ public class _Enrollee  {
     
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "enrolleeId")
     @Fetch(FetchMode.JOIN)
-    public Set<_Dependents> getDependents() {
+    public Set<_Dependent> getDependents() {
         return dependents;
     }
 
-    public void setApplicants(Set<_Dependents> dependents) {
+    public void setDependents(Set<_Dependent> dependents) {
         this.dependents = dependents;
     }
 
