@@ -31,7 +31,6 @@ public class _Dependent  {
         this.dependentId = dependentId;
     }
     
-    @Id
     @Column(name = "ENROLLEE_ID", nullable = false)
     public Long getEnrolleeId() {
         return enrolleeId;
