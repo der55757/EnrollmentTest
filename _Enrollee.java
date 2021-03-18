@@ -61,12 +61,12 @@ public class _Enrollee  {
         this.dob = dob;
     }
     
-    @Column(name = "NAME")
+    @Column(name = "NAME", nullable = false)
     public String getName() {
         return name;
     }
 
-    @Column(name = "NAME")
+    @Column(name = "NAME", nullable = false)
     public void setName(String name) {
         this.n ame= name;
     }
