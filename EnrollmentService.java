@@ -40,7 +40,7 @@ public class EnrollmentService {
     enrollmentDao.delete(id);
   }
   
-  public void addDependents(long enrolleeId, List<_Dependent> dependnents){
+  public void addDependents(long enrolleeId, List<_Dependent> dependents){
     
      _Enrollee actual = enrollmentDao.get(enrolleeId);
     
@@ -54,16 +54,16 @@ public class EnrollmentService {
     
   }
   
-  public void removeDependents(long enrolleeId, List<long> dependnentIds){
+  public void removeDependents(long enrolleeId, List<long> dependentIds){
     
      _Enrollee actual = enrollmentDao.get(enrolleeId);
     
     if(actual == null)
       throw RuntimeException("Enrollee does not exist");
     
-    for(Long id: dependnentIds){
-			actual.getDependents().remove(dependentDao.get(id));
-		}
+    for(Long id: dependentIds){
+	actual.getDependents().remove(dependentDao.get(id));
+    }
     
     enrollmentDao.update(actual); 
 
