@@ -91,6 +91,19 @@ public class EnrollmentServiceTest {
     assertThat(actual.getDependents.size()).isEqualTo(2);
     
   }
+ 
+  @Test(expected = RuntimeException.class)
+  public void addDependents_nullCheck_throwsError(){
+   
+    _Enrollee enrollee = subject.addEnrollee(buildEnrollee());
+   
+    List<_Dependent> dependents =  buildDependents()
+    _Dependent dep3 = new _Dependent(); 
+    dependents.add(dep3);
+    
+    subject.addDependents(enrollee.getEnrolleeId(), dependents);
+    
+  }
   
   @Test
   public void removeDependent_happyCase_removeDependent(){
