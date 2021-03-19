@@ -31,7 +31,8 @@ public class _Dependent  {
         this.dependentId = dependentId;
     }
     
-    @Column(name = "ENROLLEE_ID", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ENROLLEE_ID", nullable = false)
     public Long getEnrolleeId() {
         return enrolleeId;
     }
