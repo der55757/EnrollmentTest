@@ -11,6 +11,9 @@ public class EnrollmentService {
 
   //User passes in enrollee data to create
   public _Enrollee addEnrollee(_Enrollee enrollee){
+
+   if(enrollee.getName() == null || enrollee.getDob() == null || enrollee.getActivationStatus() == null)
+	   throw RuntimeException("Missing a required field");
    
     //Would have DAO with basic SessionFactory info for save update and delete with hibernate 
     return enrollmentDao.persist(enrollee);
@@ -46,6 +49,9 @@ public class EnrollmentService {
     
     if(actual == null)
       throw RuntimeException("Enrollee does not exist");
+
+   
+    dependents.stream().forEach(dependent-> verifyDependent(dependent));
     
     actual.getDependents().addAll(dependnents);
     
@@ -76,6 +82,8 @@ public class EnrollmentService {
     
     if(actual == null)
       throw RuntimeException("dependent does not exist");
+	  
+    verifyDependent(dependent);
     
     actual.setName(dependent.getName());
     actual.setDob(dependent.getDob());
@@ -85,6 +93,14 @@ public class EnrollmentService {
     return actual;
     
   }
+
+ private void verifyDependent(_Dependent dependent){
+	 
+	 if(dependent.getName() == null || dependent.getDob() == null)
+		 throw RuntimeException("Missing a required field");
+	 
+	 
+ }
   
   
   
